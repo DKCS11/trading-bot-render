@@ -1,0 +1,14 @@
+# render.yaml (updated)
+services:
+  - type: web
+    name: trading-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: BOT_TOKEN
+        value: your_telegram_token
+      - key: OPENROUTER_API_KEY
+        value: your_openrouter_key
+      - key: PORT
+        value: 5000
