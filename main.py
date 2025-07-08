@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+import sys
+print(f"Python version: {sys.version}")  # Verify Python version
 import os
 import time
 import logging
