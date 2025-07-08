@@ -1,18 +1,17 @@
-# render.yaml (updated)
 services:
   - type: web
-    name: trading-bot
-    runtime: python
-    buildCommand: pip install -r requirements.txt
+    name: tradebot
+    env: python
+    region: oregon  # or ohio, frankfurt, singapore, etc.
+    plan: free  # or starter/pro depending on your needs
+    buildCommand: |
+      pip install --upgrade pip setuptools wheel
+      pip install -r requirements.txt
     startCommand: python main.py
     envVars:
       - key: BOT_TOKEN
-        value: your_telegram_token
-      - key: OPENROUTER_API_KEY
-        value: your_openrouter_key
-      - key: PORT
-        value: 5000
-        runtime: python
-buildCommand: pip install -r requirements.txt
-pythonVersion: 3.10
-
+        sync: false  # set in Render dashboard (your Telegram bot token)
+      - key: HUGGINGFACE_TOKEN
+        sync: false  # set in Render dashboard (your HF token)
+    pythonVersion: 3.10
+    autoDeploy: true
