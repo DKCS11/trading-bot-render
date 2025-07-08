@@ -12,3 +12,7 @@ services:
         value: your_openrouter_key
       - key: PORT
         value: 5000
+        runtime: python
+buildCommand: pip install -r requirements.txt
+pythonVersion: 3.10
+
