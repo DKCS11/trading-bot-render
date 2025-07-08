@@ -2,10 +2,11 @@ flask==2.2.5
 requests==2.31.0
 python-dotenv==1.0.0
 transformers==4.36.2
-torch==2.5.1
-pillow==9.5.0
+torch==2.1.0
+pillow==10.2.0
 accelerate==0.27.2
 einops==0.7.0
 huggingface-hub==0.20.3
 safetensors==0.4.2
 numpy==1.24.4
+
