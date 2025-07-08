@@ -2,16 +2,17 @@ services:
   - type: web
     name: tradebot
     env: python
-    region: oregon  # or ohio, frankfurt, singapore, etc.
-    plan: free  # or starter/pro depending on your needs
+    region: oregon  # or choose your nearest region
+    plan: free
     buildCommand: |
-      pip install --upgrade pip setuptools wheel
+      pip install --upgrade pip setuptools wheel==0.42.0
+      pip install torch==2.2.1 --extra-index-url https://download.pytorch.org/whl/cpu
       pip install -r requirements.txt
     startCommand: python main.py
-    envVars:
-      - key: BOT_TOKEN
-        sync: false  # set in Render dashboard (your Telegram bot token)
-      - key: HUGGINGFACE_TOKEN
-        sync: false  # set in Render dashboard (your HF token)
     pythonVersion: 3.10
     autoDeploy: true
+    envVars:
+      - key: BOT_TOKEN
+        sync: false  # set this manually in the Render dashboard
+      - key: HUGGINGFACE_TOKEN
+        sync: false  # set this manually too
